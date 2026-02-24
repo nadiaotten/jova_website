@@ -172,9 +172,21 @@ def inject_custom_css() -> None:
         background: transparent !important;
         border: none !important;
         box-shadow: none !important;
-        height: auto !important;
     }
     .stApp > header {border: none !important;}
+    
+    /* Style the sidebar toggle button so it's always visible */
+    [data-testid="collapsedControl"] {
+        background: #8B2942 !important;
+        color: white !important;
+        border-radius: 0 8px 8px 0 !important;
+        box-shadow: 0 2px 8px rgba(139, 41, 66, 0.3) !important;
+        z-index: 999 !important;
+    }
+    [data-testid="collapsedControl"] svg {
+        fill: white !important;
+        stroke: white !important;
+    }
     
     /* Reduce top padding */
     div[data-testid="stVerticalBlock"] > div:first-child {padding-top: 0.5rem !important;}
