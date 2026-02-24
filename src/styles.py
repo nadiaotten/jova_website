@@ -163,19 +163,34 @@ def inject_custom_css() -> None:
         font-weight: 500;
     }
     
-    /* Hide default Streamlit elements */
+    /* Hide default Streamlit elements but keep sidebar toggle */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
-    header {visibility: hidden;}
     
-    /* Remove header and reduce top padding for more content space */
-    [data-testid="stHeader"] {display: none !important;}
+    /* Make header transparent but keep sidebar toggle button visible */
+    [data-testid="stHeader"] {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    .stApp > header {border: none !important;}
+    
+    /* Style the sidebar toggle button so it's always visible */
+    [data-testid="collapsedControl"] {
+        background: #8B2942 !important;
+        color: white !important;
+        border-radius: 0 8px 8px 0 !important;
+        box-shadow: 0 2px 8px rgba(139, 41, 66, 0.3) !important;
+        z-index: 999 !important;
+    }
+    [data-testid="collapsedControl"] svg {
+        fill: white !important;
+        stroke: white !important;
+    }
+    
+    /* Reduce top padding */
     div[data-testid="stVerticalBlock"] > div:first-child {padding-top: 0.5rem !important;}
     .block-container {padding-top: 1rem !important; border-top: none !important; box-shadow: none !important;}
-    
-    /* Remove top line/border */
-    [data-testid="stHeader"] {border: none !important; box-shadow: none !important;}
-    .stApp > header {border: none !important;}
     div[data-testid="stAppViewContainer"] {border-top: none !important;}
     div[data-testid="stAppViewContainer"] > div {border-top: none !important; box-shadow: none !important;}
     
