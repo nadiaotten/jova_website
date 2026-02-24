@@ -24,9 +24,24 @@ def inject_custom_css() -> None:
         --jova-cream: #FDF8F3;
     }
     
-    /* Main app styling */
-    .stApp {
-        background: linear-gradient(180deg, #FDF8F3 0%, #FAF5EF 50%, #F5EDE4 100%);
+    /* Force light mode */
+    .stApp, [data-testid="stAppViewContainer"] {
+        color-scheme: light !important;
+        background: linear-gradient(180deg, #FDF8F3 0%, #FAF5EF 50%, #F5EDE4 100%) !important;
+        color: #2C1810 !important;
+    }
+    
+    .stMarkdown, .stMarkdown p, .stMarkdown li, .stMarkdown span,
+    .stText, .element-container, [data-testid="stText"] {
+        color: #2C1810 !important;
+    }
+    
+    .stCaption, [data-testid="stCaptionContainer"] {
+        color: #5C4A3D !important;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: #2C1810 !important;
     }
     
     /* Header / title area */
@@ -67,6 +82,7 @@ def inject_custom_css() -> None:
         box-shadow: 0 2px 12px rgba(44, 24, 16, 0.08);
         transition: transform 0.2s, box-shadow 0.2s;
         border: 1px solid #E8DDD4;
+        color: #2C1810;
     }
     
     .product-card:hover {
@@ -81,6 +97,7 @@ def inject_custom_css() -> None:
         padding: 1.5rem 2rem;
         border-left: 4px solid #8B2942;
         box-shadow: 0 2px 12px rgba(44, 24, 16, 0.06);
+        color: #2C1810;
     }
     
     /* Rewards table */
@@ -104,6 +121,7 @@ def inject_custom_css() -> None:
     #customers td {
         padding: 10px 16px !important;
         border-bottom: 1px solid #E8DDD4;
+        color: #2C1810 !important;
     }
     
     #customers tr:nth-child(even) {
@@ -120,9 +138,13 @@ def inject_custom_css() -> None:
         padding: 2rem;
         background: linear-gradient(135deg, #E8E4E0 0%, #D8D4D0 100%);
         border-radius: 12px;
-        color: #2C1810;
+        color: #2C1810 !important;
         text-align: center;
         font-size: 0.9rem;
+    }
+    
+    .jova-footer p, .jova-footer strong {
+        color: #2C1810 !important;
     }
     
     .jova-footer a {
@@ -162,7 +184,9 @@ def inject_custom_css() -> None:
         background: linear-gradient(180deg, #E8E4E0 0%, #D8D4D0 100%) !important;
     }
     
-    [data-testid="stSidebar"] .stMarkdown {
+    [data-testid="stSidebar"] .stMarkdown,
+    [data-testid="stSidebar"] .stMarkdown p,
+    [data-testid="stSidebar"] label {
         color: #2C1810 !important;
     }
     </style>

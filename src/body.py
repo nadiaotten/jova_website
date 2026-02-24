@@ -22,7 +22,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 def _layout_accueil() -> None:
     """Home page layout."""
     st.markdown(
-        f'<h2 style="text-align: center; margin-top: 2.5rem; margin-bottom: 4rem;">{t("welcome_title")}</h2>',
+        f'<h2 style="text-align: center; margin-top: 2.5rem; margin-bottom: 4rem; color: #2C1810;">{t("welcome_title")}</h2>',
         unsafe_allow_html=True,
     )
     st.markdown(t("welcome_p1"))
@@ -53,7 +53,7 @@ def _layout_accueil() -> None:
 def _layout_produits() -> None:
     """Products page layout."""
     st.markdown(
-        f'<h2 style="text-align: center; margin-bottom: 4rem;">{t("products_title")}</h2>',
+        f'<h2 style="text-align: center; margin-bottom: 4rem; color: #2C1810;">{t("products_title")}</h2>',
         unsafe_allow_html=True,
     )
 
@@ -78,7 +78,7 @@ def _layout_produits() -> None:
 def _layout_recompenses() -> None:
     """Awards page layout."""
     st.markdown(
-        f'<h2 style="text-align: center; margin-bottom: 4rem;">{t("awards_title")}</h2>',
+        f'<h2 style="text-align: center; margin-bottom: 4rem; color: #2C1810;">{t("awards_title")}</h2>',
         unsafe_allow_html=True,
     )
 
@@ -131,7 +131,7 @@ def _layout_recompenses() -> None:
 def _layout_contact() -> None:
     """Contact page layout."""
     st.markdown(
-        f'<h2 style="text-align: center; margin-bottom: 4rem;">{t("contact_title")}</h2>',
+        f'<h2 style="text-align: center; margin-bottom: 4rem; color: #2C1810;">{t("contact_title")}</h2>',
         unsafe_allow_html=True,
     )
 
@@ -142,11 +142,11 @@ def _layout_contact() -> None:
     with col1:
         st.markdown(
             f"""
-            <div style="background: white; padding: 1.5rem 2rem; border-radius: 12px; border-left: 4px solid #8B2942; box-shadow: 0 2px 12px rgba(44,24,16,0.06);">
-                <p style="margin: 0; font-size: 1.1rem;"><strong>JOVA SA</strong></p>
-                <p style="margin: 0.5rem 0 0 0;">Rue de l'Abbaye, 46</p>
-                <p style="margin: 0.25rem 0 0 0;">4040 Herstal</p>
-                <p style="margin: 0.25rem 0 0 0;">Belgique</p>
+            <div style="background: white; color: #2C1810; padding: 1.5rem 2rem; border-radius: 12px; border-left: 4px solid #8B2942; box-shadow: 0 2px 12px rgba(44,24,16,0.06);">
+                <p style="margin: 0; font-size: 1.1rem; color: #2C1810;"><strong>JOVA SA</strong></p>
+                <p style="margin: 0.5rem 0 0 0; color: #2C1810;">Rue de l'Abbaye, 46</p>
+                <p style="margin: 0.25rem 0 0 0; color: #2C1810;">4040 Herstal</p>
+                <p style="margin: 0.25rem 0 0 0; color: #2C1810;">Belgique</p>
                 <p style="margin: 1rem 0 0 0; font-size: 0.85rem; color: #6c757d;"><em>{t("contact_map_hint")}</em></p>
             </div>
             """,
@@ -175,8 +175,8 @@ def _layout_contact() -> None:
     with col_contact1:
         st.markdown(
             f"""
-            <div style="background: white; padding: 1.5rem 2rem; border-radius: 12px; box-shadow: 0 2px 12px rgba(44,24,16,0.06); margin-bottom: 1rem;">
-                <p style="margin: 0 0 1rem 0; font-weight: 600;">✉️ {t("contact_email")}</p>
+            <div style="background: white; color: #2C1810; padding: 1.5rem 2rem; border-radius: 12px; box-shadow: 0 2px 12px rgba(44,24,16,0.06); margin-bottom: 1rem;">
+                <p style="margin: 0 0 1rem 0; font-weight: 600; color: #2C1810;">✉️ {t("contact_email")}</p>
                 <p style="margin: 0;"><a href="mailto:info@jova.be" style="color: #8B2942; font-size: 1.1rem;">info@jova.be</a></p>
             </div>
             """,
@@ -186,12 +186,12 @@ def _layout_contact() -> None:
     with col_contact2:
         st.markdown(
             f"""
-            <div style="background: white; padding: 1.5rem 2rem; border-radius: 12px; box-shadow: 0 2px 12px rgba(44,24,16,0.06); margin-bottom: 1rem;">
-                <p style="margin: 0 0 1rem 0; font-weight: 600;">📱 {t("contact_phone")}</p>
-                <p style="margin: 0.25rem 0;"><strong>{t("contact_office")}</strong><br><a href="tel:+3242646818">+32 (0)4 264 68 18</a></p>
-                <p style="margin: 0.5rem 0 0.25rem 0;"><strong>Ewa Otten</strong><br><a href="tel:+32498153434">+32 (0)498 15 34 34</a></p>
-                <p style="margin: 0.25rem 0;"><strong>Jean Otten</strong><br><a href="tel:+32496722172">+32 (0)496 72 21 72</a></p>
-                <p style="margin: 0.25rem 0;"><strong>Dimitri Otten</strong> <em style="font-size: 0.85rem;">{t("contact_english")}</em><br><a href="tel:+32478266260">+32 (0)478 26 62 60</a></p>
+            <div style="background: white; color: #2C1810; padding: 1.5rem 2rem; border-radius: 12px; box-shadow: 0 2px 12px rgba(44,24,16,0.06); margin-bottom: 1rem;">
+                <p style="margin: 0 0 1rem 0; font-weight: 600; color: #2C1810;">📱 {t("contact_phone")}</p>
+                <p style="margin: 0.25rem 0; color: #2C1810;"><strong>{t("contact_office")}</strong><br><a href="tel:+3242646818" style="color: #8B2942;">+32 (0)4 264 68 18</a></p>
+                <p style="margin: 0.5rem 0 0.25rem 0; color: #2C1810;"><strong>Ewa Otten</strong><br><a href="tel:+32498153434" style="color: #8B2942;">+32 (0)498 15 34 34</a></p>
+                <p style="margin: 0.25rem 0; color: #2C1810;"><strong>Jean Otten</strong><br><a href="tel:+32496722172" style="color: #8B2942;">+32 (0)496 72 21 72</a></p>
+                <p style="margin: 0.25rem 0; color: #2C1810;"><strong>Dimitri Otten</strong> <em style="font-size: 0.85rem;">{t("contact_english")}</em><br><a href="tel:+32478266260" style="color: #8B2942;">+32 (0)478 26 62 60</a></p>
             </div>
             """,
             unsafe_allow_html=True,

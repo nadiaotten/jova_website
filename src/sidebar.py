@@ -27,7 +27,7 @@ def sidebar_app() -> None:
             jova_logo = utils.show_image("jova.png")
             st.image(jova_logo, width=160)
         st.markdown(
-            f'<p style="text-align: center; font-size: 0.9rem; color: #5C4A3D;">{t("sidebar_caption")}</p>',
+            f'<p style="text-align: center; font-size: 0.9rem; color: #5C4A3D !important;">{t("sidebar_caption")}</p>',
             unsafe_allow_html=True,
         )
         st.markdown("---")
