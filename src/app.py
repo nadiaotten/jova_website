@@ -13,6 +13,7 @@ def app() -> None:
         initial_sidebar_state="expanded",
     )
 
+
     inject_custom_css()
     sidebar_app()
     body_app()

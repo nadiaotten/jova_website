@@ -11,7 +11,7 @@ from src import utils
 from src.components import render_footer
 from src.config import PRODUCTS_MAIN
 from src.i18n import t, get_menu_items
-from src.styles import get_icon
+from src.styles import get_icon, OPTION_MENU_STYLES
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -21,19 +21,28 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def _layout_accueil() -> None:
     """Home page layout."""
+    
     st.markdown(
-        f'<h2 style="text-align: center; margin-top: 2.5rem; margin-bottom: 4rem; color: #2C1810;">{t("welcome_title")}</h2>',
+        f"""
+        <div style="
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            color: #5C4A3D;
+            margin-bottom: 1rem;
+        ">
+            {t("welcome_title")}
+        </div>
+        """,
         unsafe_allow_html=True,
     )
+    st.write("")
     st.markdown(t("welcome_p1"))
     st.markdown(t("welcome_p2"))
     st.markdown(t("welcome_p3"))
     st.markdown(t("welcome_p4"))
-
-    st.markdown("---")
+    st.write("")
     st.markdown(t("refs_label"))
-
-    # Highlight badges
     st.markdown("---")
     c1, c2, c3 = st.columns(3)
     with c1:
@@ -45,9 +54,6 @@ def _layout_accueil() -> None:
     with c3:
         st.markdown(f"### {get_icon('home')} {t('badge_gen')}")
         st.caption(t("badge_gen_caption"))
-
-    # Extra spacing before footer on home page
-    st.markdown('<div style="height: 5rem;"></div>', unsafe_allow_html=True)
 
 
 def _layout_produits() -> None:
@@ -64,7 +70,7 @@ def _layout_produits() -> None:
             with col:
                 utils.display_product(img_id, name)
 
-    st.markdown("---")
+
     st.markdown(f"### {t('products_presentations')}")
 
     product_images = [f"plat{j}.jpg" for j in range(1, 11)]
@@ -120,12 +126,8 @@ def _layout_recompenses() -> None:
     </table>
     """
 
-    col1, col2 = st.columns([1, 1])
-    with col1:
-        st.markdown(recompenses_html, unsafe_allow_html=True)
-    with col2:
-        or_image = utils.show_image("OR.jpg")
-        st.image(or_image, width=280)
+
+    st.markdown(recompenses_html, unsafe_allow_html=True)
 
 
 def _layout_contact() -> None:
@@ -161,12 +163,11 @@ def _layout_contact() -> None:
             mime = "image/jpeg" if map_path.suffix.lower() in (".jpg", ".jpeg") else "image/png"
             link = "https://www.google.be/maps/place/Rue+de+l'Abbaye+46,+4040+Herstal"
             st.markdown(
-                f'<a href="{link}" target="_blank"><img src="data:{mime};base64,{encoded}" width="650" style="border-radius:12px; box-shadow: 0 2px 12px rgba(44,24,16,0.08);"></a>',
+                f'<a href="{link}" target="_blank"><img src="data:{mime};base64,{encoded}" width="500" style="border-radius:12px; box-shadow: 0 2px 12px rgba(44,24,16,0.08);"></a>',
                 unsafe_allow_html=True,
             )
 
     st.markdown("")
-    st.markdown("---")
     st.markdown(f"### {t('contact_how')}")
 
     # Contact info in a clean card layout
@@ -175,7 +176,7 @@ def _layout_contact() -> None:
     with col_contact1:
         st.markdown(
             f"""
-            <div style="background: white; color: #2C1810; padding: 1.5rem 2rem; border-radius: 12px; box-shadow: 0 2px 12px rgba(44,24,16,0.06); margin-bottom: 1rem;">
+            <div style="background: white; color: #2C1810; padding: 1.5rem 2rem; border-radius: 12px; border-left: 4px solid #8B2942; box-shadow: 0 2px 12px rgba(44,24,16,0.06);">
                 <p style="margin: 0 0 1rem 0; font-weight: 600; color: #2C1810;">✉️ {t("contact_email")}</p>
                 <p style="margin: 0;"><a href="mailto:info@jova.be" style="color: #8B2942; font-size: 1.1rem;">info@jova.be</a></p>
             </div>
@@ -186,7 +187,7 @@ def _layout_contact() -> None:
     with col_contact2:
         st.markdown(
             f"""
-            <div style="background: white; color: #2C1810; padding: 1.5rem 2rem; border-radius: 12px; box-shadow: 0 2px 12px rgba(44,24,16,0.06); margin-bottom: 1rem;">
+            <div style="background: white; color: #2C1810; padding: 1.5rem 2rem; border-radius: 12px; border-left: 4px solid #8B2942; box-shadow: 0 2px 12px rgba(44,24,16,0.06);">
                 <p style="margin: 0 0 1rem 0; font-weight: 600; color: #2C1810;">📱 {t("contact_phone")}</p>
                 <p style="margin: 0.25rem 0; color: #2C1810;"><strong>{t("contact_office")}</strong><br><a href="tel:+3242646818" style="color: #8B2942;">+32 (0)4 264 68 18</a></p>
                 <p style="margin: 0.5rem 0 0.25rem 0; color: #2C1810;"><strong>Ewa Otten</strong><br><a href="tel:+32498153434" style="color: #8B2942;">+32 (0)498 15 34 34</a></p>
@@ -215,6 +216,7 @@ def body_app() -> None:
             icons=menu_icons,
             default_index=0,
             menu_icon="list",
+            styles=OPTION_MENU_STYLES
         )
         selected_key = next(k for lbl, k in menu_items if lbl == selected_label)
         st.session_state.conversion_menu = selected_label

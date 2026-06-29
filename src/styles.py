@@ -6,24 +6,43 @@ SECONDARY = "#C4A35A"    # Gold/amber
 ACCENT = "#2C1810"       # Dark brown
 BG_LIGHT = "#FDF8F3"     # Cream
 BG_CARD = "#FFFFFF"
-TEXT_DARK = "#2C1810"
 TEXT_MUTED = "#5C4A3D"
 BORDER = "#E8DDD4"
+
+# Option menu styles
+OPTION_MENU_STYLES = {
+    "container": {
+        "padding": "0!important",
+        "background-color": "#FFFFFF",
+    },
+    "menu-title": {
+        "color": "#AA9E96",
+        "font-size": "20px",
+        "font-weight": "600",
+    },
+    "icon": {
+        "color": "#AA9E96",
+        "font-size": "18px",
+    },
+    "nav-link": {
+        "font-size": "16px",
+        "text-align": "left",
+        "margin": "0px",
+        "color": "#AA9E96",
+        "--hover-color": "#F5F1EE",
+    },
+    "nav-link-selected": {
+        "background-color": "#AA9E96",
+        "color": "white",
+    },
+}
 
 
 def inject_custom_css() -> None:
     """Inject custom CSS for JOVA branding."""
     st_css = """
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Source+Sans+3:wght@400;500;600&display=swap');
-    
-    :root {
-        --jova-primary: #8B2942;
-        --jova-gold: #C4A35A;
-        --jova-brown: #2C1810;
-        --jova-cream: #FDF8F3;
-    }
-    
+
     /* Force light mode */
     .stApp, [data-testid="stAppViewContainer"] {
         color-scheme: light !important;
@@ -31,84 +50,10 @@ def inject_custom_css() -> None:
         color: #2C1810 !important;
     }
     
-    .stMarkdown, .stMarkdown p, .stMarkdown li, .stMarkdown span,
-    .stText, .element-container, [data-testid="stText"] {
-        color: #2C1810 !important;
-    }
-    
     .stCaption, [data-testid="stCaptionContainer"] {
         color: #5C4A3D !important;
     }
-    
-    h1, h2, h3, h4, h5, h6 {
-        color: #2C1810 !important;
-    }
-    
-    /* Header / title area */
-    .jova-hero {
-        background: linear-gradient(135deg, #8B2942 0%, #6B1E32 100%);
-        padding: 2rem;
-        border-radius: 12px;
-        text-align: center;
-        margin-bottom: 2rem;
-        box-shadow: 0 4px 20px rgba(139, 41, 66, 0.2);
-    }
-    
-    .jova-hero h1 {
-        color: white !important;
-        font-family: 'Cormorant Garamond', serif !important;
-        font-weight: 700 !important;
-        font-size: 2.5rem !important;
-    }
-    
-    .jova-hero p {
-        color: rgba(255,255,255,0.9) !important;
-        font-size: 1.1rem !important;
-    }
-    
-    /* Section styling */
-    .stSubheader, .stHeader {
-        font-family: 'Cormorant Garamond', serif !important;
-        color: #2C1810 !important;
-        border-bottom: 2px solid #C4A35A;
-        padding-bottom: 0.5rem !important;
-    }
-    
-    /* Product cards */
-    .product-card {
-        background: white;
-        border-radius: 12px;
-        padding: 1.5rem;
-        box-shadow: 0 2px 12px rgba(44, 24, 16, 0.08);
-        transition: transform 0.2s, box-shadow 0.2s;
-        border: 1px solid #E8DDD4;
-        color: #2C1810;
-    }
-    
-    .product-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 24px rgba(139, 41, 66, 0.12);
-    }
-    
-    /* Contact info styling */
-    .contact-box {
-        background: white;
-        border-radius: 12px;
-        padding: 1.5rem 2rem;
-        border-left: 4px solid #8B2942;
-        box-shadow: 0 2px 12px rgba(44, 24, 16, 0.06);
-        color: #2C1810;
-    }
-    
-    /* Rewards table */
-    #customers {
-        font-family: 'Source Sans 3', sans-serif !important;
-        border-collapse: collapse;
-        width: 100%;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 12px rgba(44, 24, 16, 0.08);
-    }
+
     
     #customers th {
         background: #8B2942 !important;
@@ -117,55 +62,20 @@ def inject_custom_css() -> None:
         text-align: left;
         font-weight: 600;
     }
-    
-    #customers td {
-        padding: 10px 16px !important;
-        border-bottom: 1px solid #E8DDD4;
-        color: #2C1810 !important;
-    }
-    
-    #customers tr:nth-child(even) {
-        background: #FAF7F2 !important;
-    }
-    
-    #customers tr:hover {
-        background: #F5EDE4 !important;
-    }
+
     
     /* Footer */
     .jova-footer {
-        margin-top: 4rem;
-        padding: 2rem;
+        margin-top: 1rem;
+        padding: 1.5rem;
         background: linear-gradient(135deg, #E8E4E0 0%, #D8D4D0 100%);
-        border-radius: 12px;
+        border-radius: 8px;
         color: #2C1810 !important;
         text-align: center;
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     
-    .jova-footer p, .jova-footer strong {
-        color: #2C1810 !important;
-    }
     
-    .jova-footer a {
-        color: #8B2942 !important;
-    }
-    
-    /* Icon badges */
-    .icon-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: rgba(139, 41, 66, 0.1);
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        margin: 0.25rem;
-        font-weight: 500;
-    }
-    
-    /* Hide default Streamlit elements but keep sidebar toggle */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
     
     /* Make header transparent but keep sidebar toggle button visible */
     [data-testid="stHeader"] {
@@ -173,20 +83,8 @@ def inject_custom_css() -> None:
         border: none !important;
         box-shadow: none !important;
     }
-    .stApp > header {border: none !important;}
+    # .stApp > header {border: none !important;}
     
-    /* Style the sidebar toggle button so it's always visible */
-    [data-testid="collapsedControl"] {
-        background: #8B2942 !important;
-        color: white !important;
-        border-radius: 0 8px 8px 0 !important;
-        box-shadow: 0 2px 8px rgba(139, 41, 66, 0.3) !important;
-        z-index: 999 !important;
-    }
-    [data-testid="collapsedControl"] svg {
-        fill: white !important;
-        stroke: white !important;
-    }
     
     /* Reduce top padding */
     div[data-testid="stVerticalBlock"] > div:first-child {padding-top: 0.5rem !important;}
@@ -198,14 +96,45 @@ def inject_custom_css() -> None:
     [data-testid="stSidebar"] {
         background: linear-gradient(180deg, #E8E4E0 0%, #D8D4D0 100%) !important;
     }
-    
-    [data-testid="stSidebar"] .stMarkdown,
-    [data-testid="stSidebar"] .stMarkdown p,
-    [data-testid="stSidebar"] label {
-        color: #2C1810 !important;
+
+        /* Selectbox styling */
+    div[data-baseweb="select"] > div {
+        background-color: white !important;
+        color: #AA9E96 !important;
+        border-radius: 8px;
     }
+
+    /* Home page text sizing */
+    .stMarkdown h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .stMarkdown h3 {
+        font-size: 1.1rem !important;
+    }
+
+    .stMarkdown p {
+        font-size: 0.95rem !important;
+    }
+
+    /* Reduce text sizes in all layouts */
+    .stMarkdown {
+        font-size: 0.9rem !important;
+    }
+
+    #customers {
+        font-size: 0.85rem !important;
+    }
+
+    #customers th, #customers td {
+        padding: 8px 12px !important;
+        font-size: 0.85rem !important;
+    }
+
     </style>
     """
+
+
     import streamlit as st
     st.markdown(st_css, unsafe_allow_html=True)
 

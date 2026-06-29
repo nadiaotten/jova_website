@@ -5,6 +5,7 @@ from src.i18n import get_lang, set_lang, LANGUAGES, t
 
 
 def sidebar_app() -> None:
+
     with st.sidebar:
         # Language selector
         lang_options = list(LANGUAGES.keys())
@@ -19,15 +20,11 @@ def sidebar_app() -> None:
         )
         set_lang(selected_lang)
 
-        st.markdown("---")
         danseurs = utils.show_image("danseurs.png")
-        st.image(danseurs, use_container_width=True)
+        st.image(danseurs, width='stretch')
         left, center, right = st.columns([1, 2, 1])
         with center:
             jova_logo = utils.show_image("jova.png")
-            st.image(jova_logo, width=160)
-        st.markdown(
-            f'<p style="text-align: center; font-size: 0.9rem; color: #5C4A3D !important;">{t("sidebar_caption")}</p>',
-            unsafe_allow_html=True,
-        )
-        st.markdown("---")
+            st.image(jova_logo, width=60)
+
+
