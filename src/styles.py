@@ -50,17 +50,44 @@ def inject_custom_css() -> None:
         color: #2C1810 !important;
     }
     
-    .stCaption, [data-testid="stCaptionContainer"] {
-        color: #5C4A3D !important;
+
+    #rewards table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        font-family: "Segoe UI", sans-serif;
     }
 
-    
-    #customers th {
+    #rewards th {
         background: #8B2942 !important;
         color: white !important;
-        padding: 12px 16px !important;
+        padding: 14px 18px !important;
         text-align: left;
-        font-weight: 600;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.3px;
+    }
+
+    #rewards td {
+        padding: 12px 18px;
+        border-bottom: 1px solid #EFEFEF;
+        color: #333333;
+        font-size: 14px;
+    }
+
+    #rewards tbody tr:nth-child(even) {
+        background-color: #FAF8F9;
+    }
+
+    #rewards tbody tr:hover {
+        background-color: #F3E8EC;
+        transition: background-color 0.2s ease;
+    }
+
+    #rewards tbody tr:last-child td {
+        border-bottom: none;
     }
 
     
@@ -83,7 +110,6 @@ def inject_custom_css() -> None:
         border: none !important;
         box-shadow: none !important;
     }
-    # .stApp > header {border: none !important;}
     
     
     /* Reduce top padding */
@@ -102,6 +128,7 @@ def inject_custom_css() -> None:
         background-color: white !important;
         color: #AA9E96 !important;
         border-radius: 8px;
+        --hover-color: #F5F1EE !important;
     }
 
     /* Home page text sizing */

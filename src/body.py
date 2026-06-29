@@ -89,7 +89,7 @@ def _layout_recompenses() -> None:
     )
 
     recompenses_html = f"""
-    <table id="customers" width="100%" cellpadding="10">
+    <table id="rewards" width="100%" cellpadding="10">
         <tr>
             <th>{t("awards_year")}</th>
             <th>{t("awards_product")}</th>
