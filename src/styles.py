@@ -6,7 +6,7 @@ SECONDARY = "#C4A35A"    # Gold/amber
 ACCENT = "#2C1810"       # Dark brown
 BG_LIGHT = "#FDF8F3"     # Cream
 BG_CARD = "#FFFFFF"
-TEXT_MUTED = "#5C4A3D"
+TEXT_MUTED = "#968274"
 BORDER = "#E8DDD4"
 
 # Option menu styles
@@ -42,6 +42,24 @@ def inject_custom_css() -> None:
     """Inject custom CSS for JOVA branding."""
     st_css = """
     <style>
+
+    /* Make sidebar toggle arrow visible */
+    [data-testid="stHeader"] button {
+        background-color: #AA9E96 !important;
+        color: #AA9E96 !important;
+        border-radius: 50% !important;
+        width: 42px !important;
+        height: 42px !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+    }
+
+
+    /* Hover effect */
+    [data-testid="stHeader"] button:hover {
+        background-color: #C4A35A !important;
+    }
+
+
 
     /* Force light mode */
     .stApp, [data-testid="stAppViewContainer"] {
@@ -120,7 +138,10 @@ def inject_custom_css() -> None:
     
     /* Sidebar styling */
     [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #E8E4E0 0%, #D8D4D0 100%) !important;
+        padding-top: 0rem !important; border-top: none !important; box-shadow: none !important;
+        margin-top: 0rem;
+        padding: 1rem;
+        background: linear-gradient(180deg, #D8D4D0 0%, #D8D4D0 100%) !important;
     }
 
         /* Selectbox styling */
