@@ -208,13 +208,27 @@ def body_app() -> None:
     menu_labels = [label for label, _ in menu_items]
     menu_icons = ["house", "basket", "trophy", "telephone"]
 
+    # Check for URL parameters (e.g., ?section=products)
+    query_params = st.query_params
+    section_param = query_params.get("section", None)
+
+    # Determine default index based on URL parameter
+    default_index = 0
+    if section_param:
+        section_map = {"qr_code": "products", "products": "products", "awards": "awards", "contact": "contact", "home": "home"}
+        section_key = section_map.get(section_param, "home")
+        try:
+            default_index = next(i for i, (_, k) in enumerate(menu_items) if k == section_key)
+        except StopIteration:
+            default_index = 0
+
     # Sidebar menu
     with st.sidebar:
         selected_label = option_menu(
             "Menu",
             menu_labels,
             icons=menu_icons,
-            default_index=0,
+            default_index=default_index,
             menu_icon="list",
             styles=OPTION_MENU_STYLES
         )
